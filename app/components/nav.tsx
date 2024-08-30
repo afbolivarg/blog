@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 const navItems = {
   '/': {
@@ -7,10 +7,10 @@ const navItems = {
   '/blog': {
     name: 'blog',
   },
-  'https://vercel.com/templates/next.js/portfolio-starter-kit': {
-    name: 'deploy',
+  'mailto:afbolivarg@gmail.com': {
+    name: 'contact',
   },
-}
+};
 
 export function Navbar() {
   return (
@@ -30,11 +30,20 @@ export function Navbar() {
                 >
                   {name}
                 </Link>
-              )
+              );
             })}
+            <Link
+              href={
+                'https://docs.google.com/spreadsheets/d/1SpAcU_ClJEjhjgYCT0wyYcigb7jEnxE_H0SU2hmo4EE/'
+              }
+              className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
+              target="_blank"
+            >
+              ongoing
+            </Link>
           </div>
         </nav>
       </div>
     </aside>
-  )
+  );
 }
