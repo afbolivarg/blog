@@ -17,9 +17,6 @@ export default function Page() {
         with a strong focus on creating functional, beautiful, and valuable solutions that drive 
         business success.`}
       </p>
-      <p className="mb-4">
-        {`Other interests/hobbies in no particular order: running, tennis, football (the real one, not the American one), reading, writing, cooking, coffee, whisky, and music.`}
-      </p>
       <div className="my-8">
         <BlogPosts />
       </div>
