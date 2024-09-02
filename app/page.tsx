@@ -12,8 +12,7 @@ export default function Page() {
       </p>
       <p className="mb-4">
         {`Colombian self-taught developer with experience as a fullstack developer and ML engineer,
-        currently wrapping up a Business Administration degree  on a full scholarship (a bit of a mix, 
-        I know—my parents wanted the diploma). Passionate about technology, business, and design, 
+        currently wrapping up a Business Administration degree on a full scholarship. Passionate about technology, business, and design, 
         with a strong focus on creating functional, beautiful, and valuable solutions that drive 
         business success.`}
       </p>
