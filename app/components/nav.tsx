@@ -7,9 +7,6 @@ const navItems = {
   '/blog': {
     name: 'blog',
   },
-  'mailto:afbolivarg@gmail.com': {
-    name: 'contact',
-  },
 };
 
 export function Navbar() {
