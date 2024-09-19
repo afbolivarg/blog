@@ -1,4 +1,4 @@
-services: 
+services:
   portfolio:
     container_name: portfolio
     build: .
@@ -7,3 +7,15 @@ services:
       - NODE_ENV=production
     ports:
       - 3000:3000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio.rule=Host(`afbolivarg.com`)"
+      - "traefik.http.services.potfolio.loadbalancer.server.port=3000"
+      - "traefik.http.routers.portfolio.entrypoints=websecure"
+      - "traefik.http.routers.portfolio.tls.certresolver=myresolver"
+    networks:
+      - traefik-network
+
+networks:
+  traefik-network:
+    external: true
