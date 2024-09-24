@@ -13,11 +13,10 @@ export default function Page() {
       <p className="mb-4">
         {`I'm Colombian self-taught developer with experience as a full-stack developer and ML engineer,
         currently wrapping up a Business Administration degree on a full scholarship. I'm passionate about technology, business, and design. 
-        I love creating functional, beautiful, and valuable solutions that drive business success.`}
+        I love creating functional, beautiful, and valuable pruducts.`}
       </p>
       <p className="mb-4">
-        {`In addition to my studies and my day job, I'm working on a few projects and writing about them here, as well as sharing my 
-        thoughts on books, business, and technology.`}
+        {`I write about the books I read, the projects I work on, and the things I learn.`}
       </p>
       <div className="my-8">
         <BlogPosts />
