@@ -29,7 +29,7 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <Link
+            {/* <Link
               href={
                 'https://docs.google.com/spreadsheets/d/1SpAcU_ClJEjhjgYCT0wyYcigb7jEnxE_H0SU2hmo4EE/'
               }
@@ -37,7 +37,7 @@ export function Navbar() {
               target="_blank"
             >
               ongoing
-            </Link>
+            </Link> */}
           </div>
         </nav>
       </div>
