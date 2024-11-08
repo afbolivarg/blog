@@ -7,7 +7,7 @@ export default function Page() {
         Andrés Felipe Bolívar
       </h1>
       <h2 className="mb-4 font-light">@afbolivarg</h2>
-      <p className="mb-4">
+      {/* <p className="mb-4">
         {`Working on the intersection of technology and business.`}
       </p>
       <p className="mb-4">
@@ -17,7 +17,7 @@ export default function Page() {
       </p>
       <p className="mb-4">
         {`I write about the books I read, the projects I work on, and the things I learn.`}
-      </p>
+      </p> */}
       <div className="my-8">
         <BlogPosts />
       </div>
