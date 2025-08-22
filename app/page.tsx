@@ -1,10 +1,11 @@
 import { BlogPosts } from 'app/components/posts';
+import { mrsSaintDelafield } from 'app/fonts/fonts';
 
 export default function Page() {
   return (
     <section>
-      <h1 className="text-2xl font-semibold tracking-tighter">
-        Andrés Felipe Bolívar
+      <h1 className={`text-4xl ${mrsSaintDelafield.className}`}>
+        Andrés F. Bolívar
       </h1>
       <h2 className="mb-4 font-light">@afbolivarg</h2>
       {/* <p className="mb-4">
