@@ -1,46 +1,79 @@
-import Link from 'next/link';
+'use client';
 
-const navItems = {
-  '/': {
-    name: 'home',
-  },
-  '/blog': {
-    name: 'blog',
-  },
-};
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+const navItems = [
+  { href: '/', label: 'home' },
+  { href: '/books', label: 'books' },
+  { href: '/writing', label: 'writing' },
+];
+
+function isActive(pathname: string, href: string) {
+  if (href === '/') {
+    return pathname === '/';
+  }
+
+  return pathname.startsWith(href);
+}
+
+function NavLink({
+  href,
+  label,
+  active,
+  className,
+}: {
+  href: string;
+  label: string;
+  active: boolean;
+  className?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className={`transition-colors hover:text-neutral-900 dark:hover:text-neutral-100 ${
+        active
+          ? 'text-neutral-900 dark:text-neutral-100'
+          : 'text-neutral-500 dark:text-neutral-400'
+      } ${className ?? ''}`}
+    >
+      {label}
+    </Link>
+  );
+}
 
 export function Navbar() {
+  const pathname = usePathname();
+
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
-                >
-                  {name}
-                </Link>
-              );
-            })}
-            {/* <Link
-              href={
-                'https://docs.google.com/spreadsheets/d/1SpAcU_ClJEjhjgYCT0wyYcigb7jEnxE_H0SU2hmo4EE/'
-              }
-              className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
-              target="_blank"
-            >
-              ongoing
-            </Link> */}
-          </div>
-        </nav>
-      </div>
-    </aside>
+    <>
+      <nav
+        aria-label="Site"
+        className="mb-8 flex gap-4 text-sm tracking-tight md:hidden"
+      >
+        {navItems.map(({ href, label }) => (
+          <NavLink
+            key={href}
+            href={href}
+            label={label}
+            active={isActive(pathname, href)}
+          />
+        ))}
+      </nav>
+
+      <nav
+        aria-label="Site"
+        className="fixed top-8 right-8 z-10 hidden flex-col items-end gap-2 text-sm tracking-tight md:flex"
+      >
+        {navItems.map(({ href, label }) => (
+          <NavLink
+            key={href}
+            href={href}
+            label={label}
+            active={isActive(pathname, href)}
+          />
+        ))}
+      </nav>
+    </>
   );
 }

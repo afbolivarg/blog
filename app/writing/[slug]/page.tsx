@@ -1,12 +1,11 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
-import { formatDate, getBlogPosts } from 'app/blog/utils';
+import { formatDate, getWritingPosts } from 'app/writing/utils';
 import { baseUrl } from 'app/sitemap';
-import Link from 'next/link';
 import { mrsSaintDelafield } from 'app/fonts/fonts';
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts();
+  let posts = getWritingPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -15,7 +14,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props) {
   const params = await props.params;
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  let post = getWritingPosts().find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
@@ -38,7 +37,7 @@ export async function generateMetadata(props) {
       description,
       type: 'article',
       publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
+      url: `${baseUrl}/writing/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -54,9 +53,9 @@ export async function generateMetadata(props) {
   };
 }
 
-export default async function Blog(props) {
+export default async function WritingPost(props) {
   const params = await props.params;
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  let post = getWritingPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
@@ -78,7 +77,7 @@ export default async function Blog(props) {
             image: post.metadata.image
               ? `${baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/blog/${post.slug}`,
+            url: `${baseUrl}/writing/${post.slug}`,
             author: {
               '@type': 'Person',
               name: 'Andres Bolivar',
@@ -86,11 +85,6 @@ export default async function Blog(props) {
           }),
         }}
       />
-      <div className="mb-4">
-        <Link href="/" className="hover:underline">
-          Go back
-        </Link>
-      </div>
       <h1 className="title font-semibold text-2xl tracking-tighter">
         {post.metadata.title}
       </h1>
