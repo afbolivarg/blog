@@ -32,6 +32,16 @@ const nextConfig = {
         destination: '/books',
         permanent: true,
       },
+      {
+        source: '/work/list',
+        destination: '/work',
+        permanent: true,
+      },
+      {
+        source: '/work/:slug',
+        destination: '/work',
+        permanent: true,
+      },
     ];
   },
 };

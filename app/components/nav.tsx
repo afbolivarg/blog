@@ -7,6 +7,7 @@ const navItems = [
   { href: '/', label: 'home' },
   { href: '/books', label: 'books' },
   { href: '/writing', label: 'writing' },
+  { href: '/work', label: 'work' },
 ];
 
 function isActive(pathname: string, href: string) {
