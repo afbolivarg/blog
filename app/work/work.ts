@@ -21,7 +21,7 @@ export const workItems: WorkItem[] = [
     name: 'Albuc',
     description:
       'Every time I finished a book the ideas faded. Building Albuc for myself: library + notes + ask your own highlights. Not commercial. Just putting it out free because I wish it existed. WIP.',
-    url: 'https://albuc.com?ref=afbolivarg',
+    url: 'https://albuc.afbolivarg.com/',
     sort: 2,
   },
   {
