@@ -29,9 +29,11 @@ export function WorkItemRow({ item }: { item: WorkItem }) {
           </span>
         ) : null}
       </p>
-      <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
-        {item.description}
-      </p>
+      {item.description ? (
+        <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
+          {item.description}
+        </p>
+      ) : null}
     </li>
   );
 }
